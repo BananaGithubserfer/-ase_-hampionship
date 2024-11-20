@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html data-critters-container="" lang="ru" style="background:#040518">
   <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <base href="/"/>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <base href="/"/>
     <script>
       performance.mark("html_head_start")
     </script>
@@ -221,132 +221,54 @@
           <router-outlet _ngcontent-kion-c3441272473="">
           </router-outlet>
           <web-main _nghost-kion-c2905223932="" class="ng-tns-c2905223932-1 ng-star-inserted" ngh="13">
-            <div _ngcontent-kion-c2905223932="" class="container-kion ng-tns-c2905223932-1 ng-star-inserted">
-              <!-- -->
-              <web-onboarding _ngcontent-kion-c2905223932="" _nghost-kion-c725511541="" class="onboarding ng-tns-c2905223932-1 ng-star-inserted" ngh="0">
-                <!-- -->
-                <div _ngcontent-kion-c725511541="" class="banner ng-star-inserted">
-                  <div _ngcontent-kion-c725511541="" class="container-kion banner__container">
-                    <div _ngcontent-kion-c725511541="" class="banner__img">
-                      <picture _ngcontent-kion-c725511541="">
-                        <source _ngcontent-kion-c725511541="" media="(min-width: 767.99px) and (max-width: 1199.98px)" srcset="https://static.kion.ru/kds/neaz_banner/base0124/banner_base_0124_md.avif" type="image/avif"/>
-                        <source _ngcontent-kion-c725511541="" media="(max-width: 767.98px)" srcset="https://static.kion.ru/kds/neaz_banner/base0124/banner_base_0124_sm.avif" type="image/avif"/>
-                        <source _ngcontent-kion-c725511541="" srcset="https://static.kion.ru/kds/neaz_banner/base0124/banner_base_0124_xl.avif" type="image/avif"/>
-                        <source _ngcontent-kion-c725511541="" media="(min-width: 767.99px) and (max-width: 1199.98px)" srcset="https://static.kion.ru/kds/neaz_banner/base0124/banner_base_0124_md.webp" type="image/webp"/>
-                        <source _ngcontent-kion-c725511541="" media="(max-width: 767.98px)" srcset="https://static.kion.ru/kds/neaz_banner/base0124/banner_base_0124_sm.webp" type="image/webp"/>
-                        <img _ngcontent-kion-c725511541="" alt="Баннер" src="https://static.kion.ru/kds/neaz_banner/base0124/banner_base_0124_xl.webp"/>
-                      </picture>
-                      <div _ngcontent-kion-c725511541="" class="banner__content banner__content_only-md ng-star-inserted">
-                        <p _ngcontent-kion-c725511541="" class="banner__title ng-star-inserted">
-                        Мир историй и эксклюзивов
-                        </p>
-                        <!-- -->
-                        <p _ngcontent-kion-c725511541="" class="banner__sub-title ng-star-inserted">
-                        Фильмы, сериалы и телеканалы в одной подписке с МТС Premium
-                        </p>
-                        <!-- -->
-                        <p _ngcontent-kion-c725511541="" class="banner__colored-text ng-star-inserted">
-                        От 84 ₽ в месяц
-                        </p>
-                        <!-- -->
-                        <div _ngcontent-kion-c725511541="" class="banner__button-block ng-star-inserted">
-                          <button _ngcontent-kion-c725511541="" class="banner__button ui-web-button-secondary" type="button">
-                            Оформить подписку
-                          </button>
-                        </div>
-                        <!-- -->
-                        <p _ngcontent-kion-c725511541="" class="banner__description ng-star-inserted">
-                        Отключить можно в любой момент
-                        </p>
-                        <!-- -->
-                      </div>
-                      <!-- -->
-                    </div>
-                    <div _ngcontent-kion-c725511541="" class="banner__content ng-star-inserted">
-                      <p _ngcontent-kion-c725511541="" class="banner__title ng-star-inserted">
-                      Мир историй и эксклюзивов
-                      </p>
-                      <!-- -->
-                      <p _ngcontent-kion-c725511541="" class="banner__sub-title ng-star-inserted">
-                      Фильмы, сериалы и телеканалы в одной подписке с МТС Premium
-                      </p>
-                      <!-- -->
-                      <p _ngcontent-kion-c725511541="" class="banner__colored-text ng-star-inserted">
-                      От 84 ₽ в месяц
-                      </p>
-                      <!-- -->
-                      <div _ngcontent-kion-c725511541="" class="banner__button-block ng-star-inserted">
-                        <button _ngcontent-kion-c725511541="" class="banner__button ui-web-button-secondary" type="button">
-                          Оформить подписку
-                        </button>
-                      </div>
-                      <!-- -->
-                      <p _ngcontent-kion-c725511541="" class="banner__description ng-star-inserted">
-                      Отключить можно в любой момент
-                      </p>
-                      <!-- -->
-                    </div>
-                    <!-- -->
-                  </div>
-                </div>
-                <!-- -->
-              </web-onboarding>
               <!-- здесь код -->
 
-    <button class="button" onclick="prevSlide()">Назад</button>
-    <div class="carousel">
-        <div class="carousel-inner" id="carousel-inner">
-            <div class="card">Фото 1</div>
-            <div class="card">Фото 2</div>
-            <div class="card">Фото 3</div>
-            <div class="card">Фото 4</div>
-        </div>
-    </div>
-    <button class="button" onclick="nextSlide()">Вперед</button>
 
-    <script>
-        let index = 0;
-
-        function updateCarousel() {
-            const inner = document.getElementById('carousel-inner');
-            const offset = -index * (300 + 10); // 300 - ширина карточки, 10 - отступ
-            inner.style.transform = `translateX(${offset}px)`;
-        }
-
-        function nextSlide() {
-            const totalCards = document.querySelectorAll('.card').length;
-            if (index < totalCards - 1) {
-                index++;
-            } else {
-                index = 0; // Вернуться в начало
-            }
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            const totalCards = document.querySelectorAll('.card').length;
-            if (index > 0) {
-                index--;
-            } else {
-                index = totalCards - 1; // Вернуться в конец
-            }
-            updateCarousel();
-        }
-    </script>
-
-
-
-
-
+              <div class="carousel">
+                  <div class="carousel-inner" id="carousel-inner">
+                      <div class="card">Фото 1</div>
+                      <div class="card">Фото 2</div>
+                      <div class="card">Фото 3</div>
+                      <div class="card">Фото 4</div>
+                  </div>
+              </div>
+          
+              <button class="button" onclick="prevSlide()">Назад</button>
+              <button class="button" onclick="nextSlide()">Вперед</button>
+          
+              <script>
+                  let index = 0;
+          
+                  function updateCarousel() {
+                      const inner = document.getElementById('carousel-inner');
+                      const offset = -index * (500 + 10); // 500 - ширина карточки, 10 - отступ
+                      inner.style.transform = `translateX(${offset}px)`;
+                  }
+          
+                  function nextSlide() {
+                      const totalCards = document.querySelectorAll('.card').length;
+                      if (index < totalCards - 1) {
+                          index++;
+                      } else {
+                          index = 0; // Вернуться в начало
+                      }
+                      updateCarousel();
+                  }
+          
+                  function prevSlide() {
+                      const totalCards = document.querySelectorAll('.card').length;
+                      if (index > 0) {
+                          index--;
+                      } else {
+                          index = totalCards - 1; // Вернуться в конец
+                      }
+                      updateCarousel();
+                  }
+              </script>
 
 
               <!-- здесь конец мира-->
 
-              <div _ngcontent-kion-c2905223932="" class="ng-tns-c2905223932-1 ng-star-inserted">
-              </div>
-              <!-- -->
-            </div>
-            <!-- -->
             <!-- -->
           </web-main>
           <!-- -->
@@ -692,7 +614,7 @@
             <div _ngcontent-kion-c2706225599="" class="row mx-0 ng-star-inserted">
               <div _ngcontent-kion-c2706225599="" class="col px-0">
                 <nav _ngcontent-kion-c2706225599="" class="d-flex justify-content-around">
-                  <a _ngcontent-kion-c2706225599="" class="d-flex flex-column justify-content-center align-items-center text-decoration-none ng-star-inserted active" href="/" routerlinkactive="active">
+                  <a _ngcontent-kion-c2706225599="" class="d-flex flex-column justify-content-center align-items-center text-decoration-none ng-star-inserted" href="/tv" routerlinkactive="active">
                     <svg-icon _ngcontent-kion-c2706225599="" class="svg-icon ng-star-inserted" ngh="6" style="transform: rotate(undefineddeg);">
                       <svg xmlns="http://www.w3.org/2000/svg">
                         <use xlink:href="#home">
@@ -702,6 +624,19 @@
                     <!-- -->
                     Главная
                   </a>
+
+                  <a _ngcontent-kion-c2706225599="" class="d-flex flex-column justify-content-center align-items-center text-decoration-none ng-star-inserted active" href="/" routerlinkactive="active">
+                    <svg-icon _ngcontent-kion-c2706225599="" class="svg-icon ng-star-inserted" ngh="6" style="transform: rotate(undefineddeg);">
+                      <svg xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#home">
+                        </use>
+                      </svg>
+                    </svg-icon>
+                    <!-- -->
+                    Викторины
+                  </a>
+
+
                   <a _ngcontent-kion-c2706225599="" class="d-flex flex-column justify-content-center align-items-center text-decoration-none ng-star-inserted" href="/tv" routerlinkactive="active">
                     <svg-icon _ngcontent-kion-c2706225599="" class="svg-icon ng-star-inserted" ngh="6" style="transform: rotate(undefineddeg);">
                       <svg xmlns="http://www.w3.org/2000/svg">
@@ -712,6 +647,7 @@
                     <!-- -->
                     ТВ
                   </a>
+
                   <a _ngcontent-kion-c2706225599="" class="d-flex flex-column justify-content-center align-items-center text-decoration-none ng-star-inserted" href="/video" routerlinkactive="active">
                     <svg-icon _ngcontent-kion-c2706225599="" class="svg-icon ng-star-inserted" ngh="6" style="transform: rotate(undefineddeg);">
                       <svg xmlns="http://www.w3.org/2000/svg">
