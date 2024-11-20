@@ -1,0 +1,31 @@
+.button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 500px; /* Ширина карусели */
+    height: 200px; /* Высота карусели */
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.card {
+    min-width: 500px;  /* Ширина каждой карточки */
+    height: 200px; /* Высота каждой карточки */
+    margin: 0 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
