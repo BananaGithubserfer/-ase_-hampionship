@@ -269,6 +269,34 @@
               <button class="button" type="submit">Сохранить ответы</button>
             </form>
             </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Находим все элементы с атрибутом required
+    const form = document.querySelector('form');
+    const inputs = form.querySelectorAll('input[required]');
+
+    inputs.forEach(function(input) {
+      // Убираем стандартное сообщение об ошибке на фокус
+      input.addEventListener('invalid', function(event) {
+        event.preventDefault();
+      });
+    });
+
+    form.addEventListener('submit', function(event) {
+      // Принудительно проверяем форму перед отправкой
+      let isValid = true;
+      inputs.forEach(function(input) {
+        if (!input.checkValidity()) {
+          isValid = false;
+        }
+      });
+
+      if (!isValid) {
+        event.preventDefault(); // Предотвращаем отправку, если есть ошибки
+      }
+    });
+  });
+</script>
 
 
             <script>
