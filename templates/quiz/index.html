@@ -240,6 +240,7 @@
               </form>
             -->
 
+            <div align="center">
             <p>У вас монет: {{ coins }}</p>
             <form action="/quiz" method="post">
               <div class="carousel">
@@ -263,12 +264,12 @@
                   {% endfor %}
                 </div>
               </div>
-              <button type="submit">Сохранить ответы</button>
+              <button class="button" onclick="prevSlide()">Назад</button>
+              <button class="button" onclick="nextSlide()">Вперед</button>
+              <button class="button" type="submit">Сохранить ответы</button>
             </form>
+            </div>
 
-            <button type="submit">Отправить</button>
-            <button class="button" onclick="prevSlide()">Назад</button>
-            <button class="button" onclick="nextSlide()">Вперед</button>
 
             <script>
               let index = 0;

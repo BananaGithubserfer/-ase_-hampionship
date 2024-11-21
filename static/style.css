@@ -22,10 +22,10 @@
 
 .card {
     min-width: 500px;  /* Ширина каждой карточки */
-    height: 200px; /* Высота каждой карточки */
+    height: 200px;  /* Высота каждой карточки */
     margin: 0 5px;
     border-radius: 5px;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
 }
