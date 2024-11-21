@@ -1,24 +1,30 @@
+DEBUG = True
 from flask import Flask, render_template, request, session, redirect
-import random
+import random, json
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"  # Для работы сессий
 
 # Пример вопросов с вариантами ответов
-questions = {
-    "Какой цвет неба днём?": {
-        "options": ["голубой", "зеленый", "красный", "черный"],
-        "correct_answer": "голубой"
-    },
-    "Сколько дней в неделе?": {
-        "options": ["шесть", "семь", "восемь", "пять"],
-        "correct_answer": "семь"
-    },
-    "Столица Франции?": {
-        "options": ["Берлин", "Лондон", "Париж", "Мадрид"],
-        "correct_answer": "Париж"
-    },
-}
+
+#questions = {
+#    "Какой цвет неба днём?": {
+#        "options": ["голубой", "зеленый", "красный", "черный"],
+#        "correct_answer": "голубой"
+#    },
+#    "Сколько дней в неделе?": {
+#        "options": ["шесть", "семь", "восемь", "пять"],
+#        "correct_answer": "семь"
+#    },
+#    "Столица Франции?": {
+#        "options": ["Берлин", "Лондон", "Париж", "Мадрид"],
+#        "correct_answer": "Париж"
+#    },
+#}
+
+with open('./quizzes.json', 'r') as q:
+    quizzes_string = q.read()
+quizzes = json.loads(quizzes_string)
 
 @app.route("/", methods=['GET'])
 def index():
@@ -33,7 +39,11 @@ def quiz():
         session["answers"] = {}
     if "coins" not in session:
         session["coins"] = 0
-    
+
+    questions = quizzes[0]['questions']   
+    print(questions)
+
+
     if request.method == "POST":
         # Проверяем ответы
         current_coins = 0
@@ -69,4 +79,4 @@ def quiz():
                            quiz_completed=quiz_completed)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=DEBUG)

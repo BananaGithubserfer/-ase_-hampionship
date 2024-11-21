@@ -240,6 +240,9 @@
               </form>
             -->
 
+            <p>
+
+            </p>
             <div align="center">
             <p>У вас монет: {{ coins }}</p>
             <form action="/quiz" method="post">
@@ -249,7 +252,7 @@
                   <div class="card">
                     <p>{{ question }}</p>
                     {% for option in details.options %}
-                    <div>
+                    <div align="left">
                       <input
                           type="radio"
                           name="{{ question }}"
