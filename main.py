@@ -1,27 +1,10 @@
-DEBUG = True
 from flask import Flask, render_template, request, session, redirect
-import random, json
+import json
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"  # Для работы сессий
 
 # Пример вопросов с вариантами ответов
-
-#questions = {
-#    "Какой цвет неба днём?": {
-#        "options": ["голубой", "зеленый", "красный", "черный"],
-#        "correct_answer": "голубой"
-#    },
-#    "Сколько дней в неделе?": {
-#        "options": ["шесть", "семь", "восемь", "пять"],
-#        "correct_answer": "семь"
-#    },
-#    "Столица Франции?": {
-#        "options": ["Берлин", "Лондон", "Париж", "Мадрид"],
-#        "correct_answer": "Париж"
-#    },
-#}
-
 with open('./quizzes.json', 'r') as q:
     quizzes_string = q.read()
 quizzes = json.loads(quizzes_string)
@@ -39,10 +22,11 @@ def quiz():
         session["answers"] = {}
     if "coins" not in session:
         session["coins"] = 0
+    if "quiz_completed" not in session:
+        session["quiz_completed"] = False
 
-    questions = quizzes[0]['questions']   
+    questions = quizzes[0]['questions']
     print(questions)
-
 
     if request.method == "POST":
         # Проверяем ответы
@@ -51,32 +35,28 @@ def quiz():
             answer = request.form.get(question)
             if answer:
                 session["answers"][question] = answer
-                
+
                 # Начисляем монеты за правильные ответы
                 if answer == details["correct_answer"]:
                     current_coins += 1
-        
+
         # Обновляем количество монет
         session["coins"] = current_coins
         session["quiz_completed"] = True
         session.modified = True
-        
-        return render_template('quiz/index.html', 
-                               questions=questions, 
-                               coins=session["coins"], 
-                               saved_answers=session["answers"],
-                               quiz_completed=True)
+
+        return redirect('/quiz')
 
     # GET-запрос
     saved_answers = session.get("answers", {})
     coins = session.get("coins", 0)
     quiz_completed = session.get("quiz_completed", False)
 
-    return render_template('quiz/index.html', 
-                           questions=questions, 
-                           coins=coins, 
+    return render_template('quiz/index.html',
+                           questions=questions,
+                           coins=coins,
                            saved_answers=saved_answers,
                            quiz_completed=quiz_completed)
 
 if __name__ == "__main__":
-    app.run(debug=DEBUG)
+    app.run(debug=True)
