@@ -223,38 +223,25 @@
           <web-main _nghost-kion-c2905223932="" class="ng-tns-c2905223932-1 ng-star-inserted" ngh="13">
             <!-- здесь код -->
 
-            <!--
-              <form action="/answer" method="post">
-              {% for question, details in questions.items() %}
-              <div class="card">
-              <p>{{ question }}</p>
-              {% for option in details.options %}
-              <div>
-              <input type="radio" name="answer" value="{{ option }}" required>
-              <label>{{ option }}</label>
-              </div>
-              {% endfor %}
-              <input type="hidden" name="correct_answer" value="{{ details.correct_answer }}">
-              </div>
-              {% endfor %}
-              </form>
-            -->
 
+            <p align="center">
+
+            У вас монет: {{ coins }}
+            </p>
+
+            {% for i in range(3) %}
             <p>
 
             </p>
+
             <div align="center">
-              <p>У вас монет: {{ coins }}</p>
               <form action="/quiz" method="post">
                 <div class="carousel">
                   <div class="carousel-inner" id="carousel-inner">
-                    {% for question, details in questions.items() %}
+                    {% for question, details in quizzes[i]['questions'].items() %}
                     <div class="card">
                       <p>{{ question }}</p>
                       {% for option in details.options %}
-
-
-
                       {% if not quiz_completed %}
                       <div align="left">
                         <input
@@ -266,7 +253,6 @@
                         <label>{{ option }}</label>
                       </div>
                       {% endif %}
-
                       {% endfor %}
                       {% if quiz_completed %}
                       <div>
@@ -343,6 +329,7 @@
                 updateCarousel();
               }
             </script>
+            {% endfor %}
 
 
             <!-- здесь конец мира-->

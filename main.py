@@ -53,7 +53,7 @@ def quiz():
     quiz_completed = session.get("quiz_completed", False)
 
     return render_template('quiz/index.html',
-                           questions=questions,
+                           quizzes=quizzes,
                            coins=coins,
                            saved_answers=saved_answers,
                            quiz_completed=quiz_completed)
